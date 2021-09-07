@@ -23,7 +23,8 @@ if (!function_exists("is_empty")) {
 		if (is_array($var)) {
 			return count($var) == 0;
 		} else if (is_string($var)) {
-			$var = self::fixString($var);
+			// TODO
+//			$var = self::fixString($var);
 
 			return $var == "" || trim($var) == "" || str_replace(" ", "", str_replace(" ", "", $var)) == "" || strlen($var) == 0;
 		} else {
