@@ -1,13 +1,20 @@
 {
-    "name": "gigadrive/php-commons",
-    "description": "Open-source library used in Gigadrive projects with common PHP utilities",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Mehdi Baaboura",
-            "email": "mbaaboura@gigadrivegroup.com"
-        }
-    ],
-    "require": {}
+	"name": "gigadrive/php-commons",
+	"description": "Open-source library used in Gigadrive projects with common PHP utilities",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Mehdi Baaboura",
+			"email": "mbaaboura@gigadrivegroup.com"
+		}
+	],
+	"require": {
+		"php": "^7.1 || ^8.0"
+	},
+	"autoload": {
+		"files": [
+			"src/functions/"
+		]
+	}
 }
