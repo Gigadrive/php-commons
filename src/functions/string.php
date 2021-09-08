@@ -123,3 +123,25 @@ if (!function_exists("str_snake_to_camel")) {
 		return lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $string))));
 	}
 }
+
+if (!function_exists("str_fix_encoding")) {
+	/**
+	 * Runs an encoding check on a specified string to make sure the end result is properly encoded in UTF-8.
+	 *
+	 * @param string $string The string to be checked
+	 * @param string|null $currentEncoding The current encoding of the string. If null, the encoding will be guessed.
+	 * @return string The final UTF-8 result
+	 * @author Mehdi Baaboura <mbaaboura@gigadrivegroup.com>
+	 */
+	function str_fix_encoding(string $string, ?string $currentEncoding = null): string {
+		if (is_null($currentEncoding)) {
+			$currentEncoding = mb_detect_encoding($string) ?: "utf-8";
+		}
+
+		if ($currentEncoding === "utf-8") {
+			return str_fix_encoding(iconv("utf-8", "ISO 8859-1", $string));
+		}
+
+		return iconv($currentEncoding, "utf-8", $string);
+	}
+}

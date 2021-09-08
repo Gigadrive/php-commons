@@ -8,6 +8,7 @@ use function str_camel_to_snake;
 use function str_contains;
 use function str_dashes_to_camel;
 use function str_ends_with;
+use function str_fix_encoding;
 use function str_limit;
 use function str_snake_to_camel;
 use function str_starts_with;
@@ -87,5 +88,17 @@ class StringTest extends TestCase {
 	public function testSnakeToCamel() {
 		$this->assertEquals("camelCase", str_snake_to_camel("camel_case"));
 		$this->assertEquals("thisIsACamelCaseTest", str_snake_to_camel("this_is_a_camel_case_test"));
+	}
+
+	/**
+	 * @author Mehdi Baaboura <mbaaboura@gigadrivegroup.com>
+	 * @test
+	 */
+	public function testFixEncoding() {
+		$this->assertEquals("test", str_fix_encoding("test"));
+		$this->assertEquals("123 test", str_fix_encoding("123 test"));
+
+		$this->assertEquals("😂😊🤣", str_fix_encoding("😂😊🤣"));
+		$this->assertEquals("§m=", str_fix_encoding("\xC2\xa7\x6d\x3d"));
 	}
 }
