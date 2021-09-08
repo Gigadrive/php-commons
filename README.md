@@ -9,6 +9,12 @@ Functions are registered globally and auto-loaded with Composer.
 * PHP 7.1 or higher
 * Composer
 
+## Installation
+
+```
+composer require gigadrive/php-commons
+```
+
 ## Testing
 
 This library uses PHPUnit as a testing framework.

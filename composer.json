@@ -1,14 +1,28 @@
 {
 	"name": "gigadrive/php-commons",
+	"version": "1.0.0",
 	"description": "Open-source library used in Gigadrive projects with common PHP utilities",
 	"type": "library",
 	"license": "MIT",
+	"keywords": [
+		"Library",
+		"Utility",
+		"PHP",
+		"Extension",
+		"Commons",
+		"Functions",
+		"Gigadrive",
+		"Essentials",
+		"Basic"
+	],
 	"authors": [
 		{
 			"name": "Mehdi Baaboura",
 			"email": "mbaaboura@gigadrivegroup.com"
 		}
 	],
+	"homepage": "https://github.com/Gigadrive/php-commons",
+	"readme": "README.md",
 	"require": {
 		"php": "^7.1 || ^8.0",
 		"ext-mbstring": "*",
