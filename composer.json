@@ -1,6 +1,6 @@
 {
 	"name": "gigadrive/php-commons",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Open-source library used in Gigadrive projects with common PHP utilities",
 	"type": "library",
 	"license": "MIT",
