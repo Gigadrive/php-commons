@@ -2,8 +2,10 @@
 
 namespace Gigadrive\PHPCommons\Tests\Functions;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use function str_extract_urls;
+use function str_root_domain;
 use function url_force_https;
 
 class UrlTest extends TestCase {
@@ -29,5 +31,34 @@ class UrlTest extends TestCase {
 
 		$this->assertEquals([], str_extract_urls("this is a test\n1234\nthis is a test"));
 		$this->assertEquals([], str_extract_urls("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquam urna. Ut a libero."));
+	}
+
+	/**
+	 * @author Mehdi Baaboura <mbaaboura@gigadrivegroup.com>
+	 * @test
+	 */
+	public function testRootDomain() {
+		// valid arguments
+		$this->assertEquals("example.com", str_root_domain("www.example.com"));
+		$this->assertEquals("hypixel.net", str_root_domain("mc.hypixel.net"));
+		$this->assertEquals("domain.com", str_root_domain("sub.domain.com"));
+		$this->assertEquals("test.de", str_root_domain("test.test.de"));
+		$this->assertEquals("atest.com", str_root_domain("this.is.atest.com"));
+
+		// invalid arguments
+		$this->expectException(InvalidArgumentException::class);
+		str_root_domain("localhost");
+
+		$this->expectException(InvalidArgumentException::class);
+		str_root_domain("192.168.0.1");
+
+		$this->expectException(InvalidArgumentException::class);
+		str_root_domain("255.255.255.255");
+
+		$this->expectException(InvalidArgumentException::class);
+		str_root_domain("123.456.789.012");
+
+		$this->expectException(InvalidArgumentException::class);
+		str_root_domain("example");
 	}
 }

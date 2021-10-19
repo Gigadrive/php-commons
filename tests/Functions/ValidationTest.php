@@ -18,6 +18,8 @@ class ValidationTest extends TestCase {
 		$this->assertEquals(true, validate_domain("mcskinhistory.net"));
 		$this->assertEquals(false, validate_domain("123.123.123"));
 		$this->assertEquals(false, validate_domain("test123"));
+		$this->assertEquals(false, validate_domain("192.168.0.1"));
+		$this->assertEquals(false, validate_domain("localhost"));
 		$this->assertEquals(true, validate_domain("123.234.de"));
 	}
 
