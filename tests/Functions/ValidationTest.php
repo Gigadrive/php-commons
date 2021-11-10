@@ -20,7 +20,14 @@ class ValidationTest extends TestCase {
 		$this->assertEquals(false, validate_domain("test123"));
 		$this->assertEquals(false, validate_domain("192.168.0.1"));
 		$this->assertEquals(false, validate_domain("localhost"));
+		$this->assertEquals(false, validate_domain("yo.o"));
 		$this->assertEquals(true, validate_domain("123.234.de"));
+		$this->assertEquals(true, validate_domain("meinewebseite.digital"));
+		$this->assertEquals(true, validate_domain("www.meinewebseite.digital"));
+		$this->assertEquals(true, validate_domain("www.test.meinewebseite.digital"));
+		$this->assertEquals(true, validate_domain("blackplasma.community"));
+		$this->assertEquals(true, validate_domain("www.blackplasma.community"));
+		$this->assertEquals(true, validate_domain("www.test.blackplasma.community"));
 	}
 
 	/**

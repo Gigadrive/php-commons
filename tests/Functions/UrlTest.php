@@ -43,7 +43,8 @@ class UrlTest extends TestCase {
 		$this->assertEquals("hypixel.net", str_root_domain("mc.hypixel.net"));
 		$this->assertEquals("domain.com", str_root_domain("sub.domain.com"));
 		$this->assertEquals("test.de", str_root_domain("test.test.de"));
-		$this->assertEquals("atest.com", str_root_domain("this.is.atest.com"));
+		$this->assertEquals("abcabc.com", str_root_domain("abc.abcabc.com"));
+		$this->assertEquals("test.com", str_root_domain("this.isa.test.com"));
 
 		// invalid arguments
 		$this->expectException(InvalidArgumentException::class);
